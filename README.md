@@ -13,7 +13,7 @@ git clone https://github.com/daniel-schroeder-dev/m11-transcrypt
 cd m11-transcrypt
 ```
 
-Create a virtual environement and activate it (again, make sure you're running Python 3.7):
+Create a virtual environment and activate it (again, make sure you're running Python 3.7):
 
 ```bash
 ➜  m11-transcrypt python --version
@@ -28,14 +28,23 @@ Now, install the dependencies:
 pip install -r requirements.txt
 ```
 
-Enter the `wizardlib` directory and fire up an http server:
+Enter the `wizardlib` directory and fire up an http server (note that this will block this terminal, so you'll need to open another tab and make sure to re-activate the virtual environment):
 
 ```bash
 cd wizardlib
 python -m http.server
 ```
 
-You should be able to navigate to `http://localhost:8000/index.html` and see the output from `index.py`. Everytime you make a change in `index.py`, you need to run the `build.py` script. Change the shebang to point to your Python's vevn interpreter. On my system, it's this:
+You should be able to navigate to `http://localhost:8000/index.html` and see the output from `index.py`. Everytime you make a change in `index.py`, you need to run the `build.py` script. Change the shebang to point to your Python's vevn interpreter. 
+
+On my system, it's this:
+
+```bash
+(.venv) ➜  wizardlib which python
+/home/daniel/Public/cwhq/src/wizardlib-transcrypt/.venv/bin/python
+```
+
+So, my shebang is the same as the output above. Yours will be different, so you have to change this line:
 
 ```python
 #!/home/daniel/Public/cwhq/src/wizardlib-transcrypt/.venv/bin/python
@@ -51,7 +60,7 @@ chmod +x build.py
 ./build.py
 ```
 
-If you want to get fancy, you can install `entr` and have it watch the directory:
+If you want to get fancy, you can install `entr` and have it watch the directory (note that this will block this terminal, so you'll need to open another tab and make sure to re-activate the virtual environment):
 
 ```bash
 sudo apt-get install entr

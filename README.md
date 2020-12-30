@@ -35,7 +35,7 @@ cd wizardlib
 python -m http.server
 ```
 
-You should be able to navigate to `http://localhost:8000/index.html` and see the output from `index.py`. Everytime you make a change in `index.py`, you need to run the `build.py` script. Change the shebang to point to your Python's vevn interpreter. 
+You should be able to navigate to `http://localhost:8000/index.html` and see the output from `index.py`. Everytime you make a change in `index.py`, you need to run the `build.py` script. Change the shebang to point to your Python's venv interpreter. 
 
 On my system, it's this:
 

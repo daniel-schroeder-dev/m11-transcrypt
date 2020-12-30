@@ -1,4 +1,4 @@
-// Transcrypt'ed from Python, 2020-12-30 16:18:22
+// Transcrypt'ed from Python, 2020-12-30 16:58:59
 import {AssertionError, AttributeError, BaseException, DeprecationWarning, Exception, IndexError, IterableError, KeyError, NotImplementedError, RuntimeWarning, StopIteration, UserWarning, ValueError, Warning, __JsIterator__, __PyIterator__, __Terminal__, __add__, __and__, __call__, __class__, __envir__, __eq__, __floordiv__, __ge__, __get__, __getcm__, __getitem__, __getslice__, __getsm__, __gt__, __i__, __iadd__, __iand__, __idiv__, __ijsmod__, __ilshift__, __imatmul__, __imod__, __imul__, __in__, __init__, __ior__, __ipow__, __irshift__, __isub__, __ixor__, __jsUsePyNext__, __jsmod__, __k__, __kwargtrans__, __le__, __lshift__, __lt__, __matmul__, __mergefields__, __mergekwargtrans__, __mod__, __mul__, __ne__, __neg__, __nest__, __or__, __pow__, __pragma__, __proxy__, __pyUseJsNext__, __rshift__, __setitem__, __setproperty__, __setslice__, __sort__, __specialattrib__, __sub__, __super__, __t__, __terminal__, __truediv__, __withblock__, __xor__, abs, all, any, assert, bool, bytearray, bytes, callable, chr, copy, deepcopy, delattr, dict, dir, divmod, enumerate, filter, float, getattr, hasattr, input, int, isinstance, issubclass, len, list, map, max, min, object, ord, pow, print, property, py_TypeError, py_iter, py_metatype, py_next, py_reversed, py_typeof, range, repr, round, set, setattr, sorted, str, sum, tuple, zip} from './org.transcrypt.__runtime__.js';
 var __name__ = 'builtins';
 export var element_id = 0;
@@ -6,17 +6,27 @@ export var get_next_id = function () {
 	element_id++;
 	return element_id;
 };
-export var add_text = function (text) {
+export var add_text = function (text, size) {
+	if (typeof size == 'undefined' || (size != null && size.hasOwnProperty ("__kwargtrans__"))) {;
+		var size = 18;
+	};
 	var element = document.createElement ('p');
 	element.textContent = text;
+	element.style.fontSize = size + 'px';
 	element.id = get_next_id ();
 	document.body.appendChild (element);
 	return element.id;
 };
-export var add_image = function (filename) {
+export var add_image = function (filename, size) {
+	if (typeof size == 'undefined' || (size != null && size.hasOwnProperty ("__kwargtrans__"))) {;
+		var size = null;
+	};
 	var element = document.createElement ('img');
 	element.src = filename;
 	element.id = get_next_id ();
+	if (size) {
+		element.style.width = size + 'px';
+	}
 	document.body.appendChild (element);
 	return element.id;
 };
@@ -25,16 +35,22 @@ export var add_background = function (filename) {
 };
 export var click = function (element_id, callback) {
 	var element = document.getElementById (element_id);
-	element.addEventListener ('click', callback.bind (null, element));
+	element.addEventListener ('click', callback.bind (null, element_id));
 };
-export var move_down = function (element_id, distance) {
+export var move_down = function (element_id, distance, time) {
+	if (typeof time == 'undefined' || (time != null && time.hasOwnProperty ("__kwargtrans__"))) {;
+		var time = 2;
+	};
 	var element = document.getElementById (element_id);
-	element.style.transition = '2s';
+	element.style.transition = '{}s linear transform'.format (time);
 	setTimeout (translate_y.bind (null, element, distance), 400);
 };
-export var move_up = function (element_id, distance) {
+export var move_up = function (element_id, distance, time) {
+	if (typeof time == 'undefined' || (time != null && time.hasOwnProperty ("__kwargtrans__"))) {;
+		var time = 2;
+	};
 	var element = document.getElementById (element_id);
-	element.style.transition = '2s';
+	element.style.transition = '{}s linear transform'.format (time);
 	setTimeout (translate_y.bind (null, element, -(distance)), 400);
 };
 export var position_element = function (element_id, x, y) {
@@ -53,6 +69,14 @@ export var translate_y = function (element, distance) {
 export var update_text = function (element_id, new_text) {
 	var element = document.getElementById (element_id);
 	element.textContent = new_text;
+};
+export var remove_element = function (element) {
+	element.remove ();
+};
+export var vanish = function (element_id) {
+	var element = document.getElementById (element_id);
+	element.classList.add ('fade-out');
+	setTimeout (remove_element.bind (null, element), 2000);
 };
 
 //# sourceMappingURL=builtins.map

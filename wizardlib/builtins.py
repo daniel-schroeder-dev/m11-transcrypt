@@ -14,11 +14,6 @@ def add_text(text):
     return element.id
 
 
-def set_text_color(element_id, color):
-    element = document.getElementById(element_id)
-    element.style.color = color
-
-
 def add_image(filename):
     element = document.createElement("img")
     element.src = filename
@@ -31,8 +26,21 @@ def add_background(filename):
     document.querySelector("html").style.backgroundImage = f"url({filename})"
 
 
-def translate_y(element, distance):
-    element.style.transform = f"translateY({distance}px)"
+def click(element_id, callback):
+    element = document.getElementById(element_id)
+    element.addEventListener("click", callback.bind(None, element))
+    
+
+def move_down(element_id, distance):
+    element = document.getElementById(element_id)
+    element.style.transition = "2s"
+    setTimeout(translate_y.bind(None, element, distance), 400)
+    
+
+def move_up(element_id, distance):
+    element = document.getElementById(element_id)
+    element.style.transition = "2s"
+    setTimeout(translate_y.bind(None, element, -distance), 400)
 
 
 def position_element(element_id, x, y):
@@ -41,18 +49,15 @@ def position_element(element_id, x, y):
     element.style.top = y + "px"
     element.style.left = x + "px"
 
-
-def move_down(element_id, distance):
-    element = document.getElementById(element_id)
-    element.style.transition = "2s"
-    setTimeout(translate_y.bind(null, element, distance), 400)
     
-
-def move_up(element_id, distance):
+def set_text_color(element_id, color):
     element = document.getElementById(element_id)
-    element.style.transition = "2s"
-    setTimeout(translate_y.bind(null, element, -distance), 400)
-    
+    element.style.color = color
+
+
+def translate_y(element, distance):
+    element.style.transform = f"translateY({distance}px)"
+
 
 def update_text(element_id, new_text):
     element = document.getElementById(element_id)

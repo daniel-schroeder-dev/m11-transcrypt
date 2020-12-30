@@ -7,6 +7,7 @@ def kill_ghost(ghost):
     score += 1
     update_text(score_text_element, score)
     if score > win_score:
+        clear()
         win_text = "You win!!!"
         win_text_size = 100
         win_text_color = "white"
@@ -35,7 +36,10 @@ for _ in range(num_ghosts):
     ghost_image_filename = "ghost.png"
     ghost_image_element = add_image(ghost_image_filename, ghost_image_size)
     
-    ghost_x = randint(0, 1600)
+    lowest_x_value = 0
+    highest_x_value = 1200
+    
+    ghost_x = randint(lowest_x_value, highest_x_value)
     ghost_y = 1000
     position_element(ghost_image_element, ghost_x, ghost_y)
     
@@ -45,9 +49,4 @@ for _ in range(num_ghosts):
     move_up(ghost_image_element, y_pos_above_page, move_time)
     
     click(ghost_image_element, kill_ghost)
-
-
-
-
-
 

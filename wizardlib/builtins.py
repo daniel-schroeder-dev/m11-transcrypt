@@ -29,6 +29,10 @@ def add_background(filename):
     document.querySelector("html").style.backgroundImage = f"url({filename})"
 
 
+def clear():
+    document.body.innerHTML = ""
+
+
 def click(element_id, callback):
     element = document.getElementById(element_id)
     element.addEventListener("click", callback.bind(None, element_id))
@@ -75,3 +79,5 @@ def vanish(element_id):
     element = document.getElementById(element_id)
     element.classList.add("fade-out")
     setTimeout(remove_element.bind(None, element), 2000)    
+
+

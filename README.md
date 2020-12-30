@@ -13,11 +13,13 @@ git clone https://github.com/daniel-schroeder-dev/m11-transcrypt
 cd m11-transcrypt
 ```
 
-Create a virtual environement and activate it:
+Create a virtual environement and activate it (again, make sure you're running Python 3.7):
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
+➜  m11-transcrypt python --version
+Python 3.7.9
+➜  m11-transcrypt python -m venv .venv
+➜  m11-transcrypt source .venv/bin/activate
 ```
 
 Now, install the dependencies:

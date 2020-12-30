@@ -1,5 +1,5 @@
 from builtins import *
 
-add_text("Hello, world!")
-add_text("Wut")
-add_text("Cool")
+
+text_element = add_text("Wut color is this")
+set_text_color(text_element, "red")

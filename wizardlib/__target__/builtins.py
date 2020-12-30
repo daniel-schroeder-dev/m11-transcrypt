@@ -16,6 +16,7 @@ def add_text(text):
 
 def set_text_color(element_id, color):
     element = document.getElementById(element_id)
+    element.style.color = color
 
 
 def add_image(filename):

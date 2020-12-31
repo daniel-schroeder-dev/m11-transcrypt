@@ -81,3 +81,4 @@ def vanish(element_id):
     setTimeout(remove_element.bind(None, element), 2000)    
 
 
+
